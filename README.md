@@ -16,3 +16,5 @@ for target Asset validation failed (90259) Issue
 
 build app
 `npm run make`
+
+add Simark.pkg file to Transporter(download from Mac App store), click verify app.
