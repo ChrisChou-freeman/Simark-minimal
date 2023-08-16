@@ -11,3 +11,8 @@ for target Asset validation failed (90259) Issue
 #### need create a provisionprofile
 
 [ElectronJS doc link](https://www.electronjs.org/docs/latest/tutorial/mac-app-store-submission-guide#prepare-provisioning-profile)
+
+
+
+build app
+`npm run make`
