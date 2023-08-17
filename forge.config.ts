@@ -46,10 +46,10 @@ const config: ForgeConfig = {
     icon: './src/resource/icon/AppIcon'
   },
   rebuildConfig: {},
-  makers: [new MakerPKG({
-    identity: '3rd Party Mac Developer Installer',
-    name: appName
-  })],
+  // makers: [new MakerPKG({
+  //   identity: '3rd Party Mac Developer Installer',
+  //   name: appName
+  // })],
   plugins: [
     new AutoUnpackNativesPlugin({}),
     new WebpackPlugin({
