@@ -10,20 +10,33 @@ const appName = 'Simark'
 
 const config: ForgeConfig = {
   packagerConfig: {
-    asar: true,
+    appVersion: '1.0.0',
     appBundleId: `ChrisFreeManDev-hotmail.com.${appName}`,
-    appCopyright: `© ${(new Date()).getFullYear()} ${appName}`,
-    buildVersion: '1',
+    appCopyright: `Copyright © ${(new Date()).getFullYear()} ${appName}`,
+    buildVersion: '2',
+    name: 'Simark',
     executableName: appName,
     appCategoryType: 'public.app-category.productivity',
+    asar: true,
     osxSign: {
-      type: 'distribution',
-      identity: 'Apple Distribution',
-      provisioningProfile: './simark-production.provisionprofile',
-      optionsForFile: () => {
-        return {
-          hardenedRuntime: true,
-          entitlements: './entitlements',
+      type: 'development',
+      identity: 'Apple Development: Chris Chou (3V37VL44W8)',
+      provisioningProfile: './build/embedded.provisionprofile',
+      
+      //no matter set or not to set optionsForFile option is the same result 
+      optionsForFile: (filePath) => {
+        if (filePath.endsWith('Simark.app')) {
+          return {
+            entitlements: './build/default.mas.plist',
+          }
+        } else if (filePath.includes('Library/LoginItems')) {
+          return {
+            entitlements: './build/default.mas.loginhelper.plist',
+          }
+        } else {
+          return {
+            entitlements: './build/default.mas.child.plist',
+          }
         }
       }
     },
@@ -35,7 +48,6 @@ const config: ForgeConfig = {
   rebuildConfig: {},
   makers: [new MakerPKG({
     identity: '3rd Party Mac Developer Installer',
-    install: './out',
     name: appName
   })],
   plugins: [
