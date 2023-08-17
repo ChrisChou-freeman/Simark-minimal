@@ -23,7 +23,7 @@ const config: ForgeConfig = {
       identity: 'Apple Development: Chris Chou (3V37VL44W8)',
       provisioningProfile: './build/embedded.provisionprofile',
       
-      //no matter set or not to set optionsForFile option is the same result 
+      //no matter set or not set optionsForFile option is the same result 
       optionsForFile: (filePath) => {
         if (filePath.endsWith('Simark.app')) {
           return {
